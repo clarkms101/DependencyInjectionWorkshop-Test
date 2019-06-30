@@ -18,10 +18,8 @@
         public AuthenticationService()
         {
             _profile = new ProfileDao();
-            new FailedCounter();
             _hash = new Sha256Adapter();
             _otpService = new OtpService();
-            new NLogAdapter();
         }
 
         public bool Verify(string accountId, string password, string otp)
