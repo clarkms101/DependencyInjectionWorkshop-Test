@@ -3,3 +3,10 @@
 ################################################################################
 
 /DependencyInjectionWorkshop/bin/Debug
+/DependencyInjectionWorkshop/obj/Debug
+/DependencyInjectionWorkshopTests/obj/Debug
+/DependencyInjectionWorkshopTests/bin/Debug
+/MyConsole/obj/Debug
+/MyConsole/bin/Debug
+/packages
+/.vs/DependencyInjectionWorkshop/v15/Server/sqlite3
