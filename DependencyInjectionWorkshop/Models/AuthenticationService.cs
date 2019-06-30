@@ -46,16 +46,10 @@
 
             if (hashPassword == currentPassword && otp == currentOtp)
             {
-                // 驗證成功，重設失敗次數
-                _failedCounter.ResetFailedCount(accountId);
-
                 return true;
             }
             else
             {
-                // 驗證失敗，累計失敗次數
-                _failedCounter.AddFailedCount(accountId);
-
                 int failedCount = _failedCounter.GetFailedCount(accountId);
                 _logger.Info($"accountId:{accountId} failed times:{failedCount}");
 
