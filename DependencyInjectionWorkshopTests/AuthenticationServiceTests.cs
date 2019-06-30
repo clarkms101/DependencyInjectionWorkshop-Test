@@ -33,16 +33,16 @@ namespace DependencyInjectionWorkshopTests
             // 主體
             var authenticationService = new AuthenticationService(
                 _profile,
-                _failedCounter,
                 _hash,
-                _otpService,
-                _logger);
+                _otpService);
 
             // 主體(_authentication)以界面作接口
             // authenticationService 配上 Notification => notificationDecorator
             var notificationDecorator = new NotificationDecorator(authenticationService, _notification);
-            // notificationDecorator 配上 FailedCounterDecorator => 主體
-            _authentication = new FailedCounterDecorator(notificationDecorator, _failedCounter);
+            // notificationDecorator 配上 FailedCounterDecorator => failedCounterDecorator
+            var failedCounterDecorator = new FailedCounterDecorator(notificationDecorator, _failedCounter);
+            // failedCounterDecorator 配上 LogFaileCounterDecorator => _authentication
+            _authentication = new LogFaileCounterDecorator(failedCounterDecorator, _failedCounter, _logger);
         }
 
         [Test]
