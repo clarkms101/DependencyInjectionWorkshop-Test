@@ -25,7 +25,6 @@ namespace MyConsole
 
         private static void RegisterContainer()
         {
-
             var containerBuilder = new ContainerBuilder();
 
             // DI
@@ -49,6 +48,7 @@ namespace MyConsole
             containerBuilder.RegisterDecorator<NotificationDecorator, IAuthentication>();
             containerBuilder.RegisterDecorator<FailedCounterDecorator, IAuthentication>();
             containerBuilder.RegisterDecorator<LogFaileCounterDecorator, IAuthentication>();
+            containerBuilder.RegisterDecorator<LogMethodInfoDecorator, IAuthentication>();
 
             _container = containerBuilder.Build();
         }
