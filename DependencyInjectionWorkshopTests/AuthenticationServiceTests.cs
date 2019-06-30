@@ -31,7 +31,7 @@ namespace DependencyInjectionWorkshopTests
             _notification = Substitute.For<INotification>();
             _logger = Substitute.For<ILogger>();
             // 主體
-            var authenticationService = new Authentication(
+            var authenticationService = new AuthenticationService(
                 _profile,
                 _failedCounter,
                 _hash,

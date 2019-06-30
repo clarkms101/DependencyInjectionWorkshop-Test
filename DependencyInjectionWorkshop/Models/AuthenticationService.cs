@@ -1,11 +1,6 @@
 ﻿namespace DependencyInjectionWorkshop.Models
 {
-    public interface IAuthentication
-    {
-        bool Verify(string accountId, string password, string otp);
-    }
-
-    public class Authentication : IAuthentication
+    public class AuthenticationService : IAuthentication
     {
         private IProfile _profile;
         private IFailedCounter _failedCounter;
@@ -13,7 +8,7 @@
         private IOtpService _otpService;
         private ILogger _logger;
 
-        public Authentication(
+        public AuthenticationService(
             IProfile profile,
             IFailedCounter failedCounter,
             IHash hash,
@@ -26,7 +21,7 @@
             _otpService = otpService;
             _logger = logger;
         }
-        public Authentication()
+        public AuthenticationService()
         {
             _profile = new ProfileDao();
             _failedCounter = new FailedCounter();
@@ -49,12 +44,8 @@
             }
             else
             {
-                int failedCount = _failedCounter.GetFailedCount(accountId);
-                _logger.Info($"accountId:{accountId} failed times:{failedCount}");
-
                 return false;
             }
         }
-
     }
 }
