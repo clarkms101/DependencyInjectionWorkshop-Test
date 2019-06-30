@@ -33,7 +33,6 @@
             _hash = new Sha256Adapter();
             _otpService = new OtpService();
             _logger = new NLogAdapter();
-            new SlackAdapter();
         }
 
         public bool Verify(string accountId, string password, string otp)
