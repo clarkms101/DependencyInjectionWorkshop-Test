@@ -18,8 +18,7 @@
             IFailedCounter failedCounter,
             IHash hash,
             IOtpService otpService,
-            ILogger logger,
-            INotification notification)
+            ILogger logger)
         {
             _profile = profile;
             _failedCounter = failedCounter;

@@ -36,8 +36,7 @@ namespace DependencyInjectionWorkshopTests
                 _failedCounter,
                 _hash,
                 _otpService,
-                _logger,
-                _notification);
+                _logger);
 
             // 主體(_authentication)以界面作接口
             // authenticationService 配上 Notification => notificationDecorator
